@@ -5,12 +5,15 @@
   "name": "likelion",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "dev": "node index.js",
+    "start" : "npx http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
 }
