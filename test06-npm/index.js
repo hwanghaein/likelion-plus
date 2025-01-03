@@ -1,4 +1,9 @@
+import {substract as s} from "./module.js"
+
+
 console.log("hello npm");
+console.log(s(2,3));
+
 
 // npm : 라이브러리, tool, 실행환경
 // 라이브러리 
@@ -13,4 +18,3 @@ console.log("hello npm");
 // --save-dev / -D 하면 배포할때 포함 안됨 
 // dependencies VS devDependencies 
 
-//  
