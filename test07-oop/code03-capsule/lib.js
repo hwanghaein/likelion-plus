@@ -1,6 +1,9 @@
 
 import readlineSync from "readline-sync";
-import { add, getList, size } from "./exam-service.js";
+// import { add, getList, size } from "./exam-service.js";
+import Exam from "./exam.js";
+import ExamService from "./exam-service.js";
+const service = new ExamService();
 
 export const printHeader = () => {
     console.log(
@@ -44,32 +47,27 @@ export const inputScore = () => {
     math = parseInt(math);
 
     // exams.push({ kor, eng, math });
-    add({ kor, eng, math });
+    service.add(new Exam(kor, eng, math));
 };
 
 export const printScore = () => {
     console.clear();
 
-    // 평균을 기준으로 역순정렬
-    // ??
-    let exams = getList(1, 3);// getList();
+    let exams = service.getList(1, 3);// getList();
 
     console.log("------------------------------------");
     console.log("                성적출력             ");
     console.log("------------------------------------");
-    console.log(`총인원: ${size()}명`);
+    console.log(`총인원: ${service.size()}명`);
     console.log("");
 
     for (let i = 0; i < exams.length; i++) {
-        exams[i];
-        // let kor = kors[i];
-        // let eng = engs[i];
-        // let math = maths[i];
-
+        let exam = exams[i];            
+        let { kor, eng, math } = exam;
         // 총점 계산
-        let total = total(exam[i]);
+        let total = exam.total();
         // 평균 계산
-        let avg = avg();
+        let avg = exam.avg();
 
         console.log(`num: ${i + 1}`);
         console.log(`kor: ${kor}`);

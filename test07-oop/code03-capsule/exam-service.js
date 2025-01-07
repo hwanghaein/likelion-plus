@@ -16,18 +16,45 @@ exam.js 파일을 추가하자.
 
   */
 
-let exams = []; // 성적데이터
+// let exams = []; // 성적데이터
 
-export const add = (exam) => {
-    exams.push(exam);
+// export const add = (exam) => {
+//     exams.push(exam);
+// }
+
+// export const getList = (page = 1, size = 3) => {
+//     let exams1 = exams
+//         .sort((a, b) => b.kor - a.kor)
+//         .slice(0, 3);
+
+//     return exams1;
+// }
+
+// export const size = () => exams.length;
+// 위의 코드를 이용해서ExamService 캡슐을 작성해주세요
+// ExamService의 서비스 함수는 add, getList, size, get(index) 4개입니다.
+// 내부적으로 사용하는 속성은 Exam 객체를 담을 수 있는 배열입니다. 
+// 배열명은 exams로 하겠습니다.
+
+export default class ExamService {
+  #exams = [];
+  constructor() {
+    // this.exams = []; // Exam 객체배열
+  }
+  add(exam) {
+    this.#exams.push(exam);
+  }
+  getList(page = 1, size = 3) {
+    let exams = this.#exams
+      .sort((a, b) => b.total() - a.total())
+      .slice(0, 3);
+
+    return exams;
+  }
+  size() {
+    return this.#exams.length;
+  }
+  get(index) {
+    return this.#exams[index];
+  }
 }
-
-export const getList = (page = 1, size = 3) => {
-    let exams1 = exams
-        .sort((a, b) => b.kor - a.kor)
-        .slice(0, 3);
-
-    return exams1;
-}
-
-export const size = () => exams.length;
