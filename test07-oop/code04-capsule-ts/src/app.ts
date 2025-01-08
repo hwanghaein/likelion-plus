@@ -5,11 +5,16 @@ let msg : unknown = "hello"; // any와는 다르게 unknown은 조건 검사를 
 // if (typeof msg === "string") msg.toUpperCase();
 console.log((msg as string).toUpperCase()); // 검사할 필요 없을때, 강제로 string 취급
 
+const myCanvas = document.getElementById("main_canvas") as HTMLCanvasElement;;
 
+let value: string | undefined = "Hello"
+value = "abc"  // 가능
+// value = false // 에러
 
+type ID = number | undefined;
+const a : ID = 1234; // 가능
 
-
-
+// const b : ID = "abc" // 에러
 
 type User = {
   name: string;
