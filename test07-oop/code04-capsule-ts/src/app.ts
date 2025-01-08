@@ -1,5 +1,9 @@
-let user : {name: string, age: number}
-user = { name: "혜인", age: 29 };
+type User = {
+  name: string;
+  age: number;
+}
+
+let user: User = { name: "혜인", age: 29 };
 console.log(user);
 
 
