@@ -1,3 +1,13 @@
+import ILens from "./interface/ILens";
+import Lens from "./interface/Lens";
+
+
+let lens:ILens = new Lens(); 
+lens.zoomIn(1);
+lens.zoomOut(1);
+
+
+
 let msg: unknown = "hello"; // any와는 다르게 unknown은 조건 검사를 함 // 여러 형식 담을 때는 unknown 써서 검사해야함. 타입의 기능을 쓸때는 형식을 비교하고 써야함.
 
 // 조건 검사하는게 불편하면, 타입 단언 사용 (형변환한다고 생각하면됨)

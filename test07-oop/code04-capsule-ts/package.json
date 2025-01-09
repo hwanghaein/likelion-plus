@@ -2,9 +2,12 @@
   "type": "module",
   "scripts": {
     "dev": "node ./dist/app.js",
-    "build" : "npx tsc"
+    "build": "npx tsc"
   },
   "dependencies": {
     "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "vite": "^6.0.7"
   }
 }
